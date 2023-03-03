@@ -1,0 +1,52 @@
+# Image-Interpolation
+
+Interpolarea este o metoda prin care se obtin valori intermediare
+aproximative ale unei functii pentru care se cunosc doar o parte din valori.
+O imagine poate fi interpretata ca o functie f : Z^2 ->R, cu semnificatia
+ca f(x,y) reprezinta intensitatea luminoasa a pixel-ului de la pozitia data
+de indicii x si y.
+	In cadrul temei, am implementat trei metode de interpolare aplicate pe imagini:
+• Interpolare nearest-neighbour;
+• Interpolare biliniara;
+• Interpolare bicubica.
+
+Resurse folosite :
+	
+	-limbaj : Octave-6.2.0
+	-timp de lucru : 4 zile
+
+Cuprins :
+
+1 Interpolare nearest-neighbour
+
+	• nn 2x2(f, STEP) aplica interpolarea nearest-neighbour pe o imagine alb-negru
+f 2x2 cu puncte intermediare echidistante, avand intre ele distanta data de STEP.
+	• nn 2x2 RGB(f, STEP) aplica aceeasi procedura, dar pentru o imagine RGB.
+	• nn resize(I, p, q) redimensioneaza o imagine alb-negru I 
+de dimensiune m x n, aceasta urmand sa aiba dimensiunea p x q.
+	• nn resize RGB(I, p, q) realizeaza aceeasi procedura, dar pentru o imagine RGB.
+
+2 Interpolare biliniara
+
+	• bilinear coef(f, x1, y1, x2, y2) calculeaza coeficientii "a"
+de interpolare biliniara intre 4 puncte.
+	• bilinear 2x2(f, STEP) aplica interpolarea nearest-neighbour pe 
+o imagine alb-negru f 2x2 cu puncte intermediare echidistante, avand intre
+ele distanta data de STEP.
+	• bilinear 2x2 RGB(f, STEP) realizeaza aceeasi metoda, dar pentru o imagine RGB.
+	• bilinear resize(I, p, q) redimensioneaza imaginea alb-negru I de 
+dimensiune m x n aceasta urmand sa aiba dimensiunea p x q.
+	• bilinear resize RGB(I, p, q) realizeaza aceeasi metoda, dar pentru o imagine RGB.
+	• bilinear rotate(I, angle) roteste o imagine alb-negru I cu unghiul dat
+	• bilinear rotate RGB(I, angle) realizeaza aceeasi procedura, dar pentru o imagine RGB.
+
+3 Interpolare bicubica
+
+	• precalc_d(I) precalculeaza derivatele dx, dy, dxy in fiecare punct al
+imaginii folosind diferente finite. 
+	• bicubic coef(f, Ix, Iy, Ixy, x1, y1, x2, y2) calculeaza matricea A de
+coefcienti de interpolare bicubica intre cele 4 puncte, primind la intrare 
+matricile cu derivate precalculate.
+	• bicubic resize(I, p, q) redimensioneaza imaginea alb-negru I de dimensiune
+m x n aceasta urmand sa aiba dimensiunea p x q.
+	• bicubic resize RGB(I, p, q) realizeaza aceeasi procdeura, dar pentru o imagine RGB.
